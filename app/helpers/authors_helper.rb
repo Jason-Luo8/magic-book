@@ -1,0 +1,9 @@
+module AuthorsHelper
+
+    def find_create(book)
+        book.authors.split(", ").map do |author.name|
+            Author.find_or_create_by(name: author_name)
+        end
+    end
+
+end
