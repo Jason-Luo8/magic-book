@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+    before_action :check_for_login
     include AuthorsHelper
 
     def index
@@ -13,7 +14,7 @@ class BooksController < ApplicationController
     end
 
     def show
-        @shelves = current_user.shelves if user_sign_in?
+        @bookmarks = current_user.bookmarks if user_sign_in?
         isbn = params[:id]
         
         @display_book = Book.search("isbn:#{ isbn }").first

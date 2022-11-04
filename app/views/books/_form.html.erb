@@ -1,0 +1,18 @@
+<%= form_for book do |f| %>
+<%= f.hidden field :title, value: display_book.title %>
+<%= f.hidden field :authors, value: @authors %>
+<%= f.hidden field :description, value: display_book.description %>
+<%= f.hidden field :average_rating, value: display_book.average_rating %>
+<%= f.hidden field :ratings_score, value: display_book.ratings_score %>
+<%= f.hidden field :image_link, value: display_book.image_link %>
+<%= f.hidden field :isbn, value: display_book.isbn %>
+
+<%= f.collection_select 'bookmark_ids', @bookmarks, :id, :name %>
+
+<%= f.submit "Create Book" %>
+
+<% end %>
+
+<div class="notice">
+    <%= flash[:notice] %>
+</div>

@@ -1,0 +1,18 @@
+<% content_for :show do %>
+
+<h3><%= @bookmark.name %></h3>
+    <% if @bookmark.user == current_user %>
+        <%= link_to "Edit Bookmark", edit_user_bookmark_path(@bookmark.user, @bookmark) %>
+        <%= link_to "Delete Bookmark", bookmark_path (@bookmark, user_id: @bookmark.user_id), method :delete %>
+    <% end %>
+
+    <% @bookmark.books.each do |book| %>
+
+    <%= render partial: "books/book", locals: { book: book} %>
+    
+    <% if @bookmark.user == current_user %>
+        <%= button_to "Remove", book_path(book.isbn), params: { bookmark_id: @bookmark_id }, method :delete %>
+    <% end %>
+
+    <% end %>
+<% end %>

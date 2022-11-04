@@ -1,0 +1,19 @@
+<div class="container para 5">
+    <div class="row number5">
+        <div class="column dark background">
+            <h3><%= @display_book.title %></h3>
+            <% @authors.each do |author| %>
+                <p><%= link_to author.name, author_path(author) %></p>
+            <% end %>
+
+            <p><%= @display_book.description %></p>
+            <p><%= show_star(@display_book.average_rating) %></p>
+        </div>
+
+        <div class="column">
+            <img src="<%= @display_book.image_link %>" >
+        </div>
+    </div>
+
+    <%= check_bookmarks %>
+</div> 

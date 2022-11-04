@@ -13,3 +13,24 @@
  *= require_tree .
  *= require_self
  */
+
+.column {
+  color: aliceblue;
+}
+
+.bookmark-title {
+  border-radius: 15px;
+  padding: 15px;
+}
+
+.user-flex {
+  display: flex;
+}
+
+.notice {
+  color: violet;
+}
+
+.container {
+  padding: 20px;
+}

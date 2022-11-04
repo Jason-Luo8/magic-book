@@ -1,0 +1,7 @@
+<%= form_tag books_path, method: "get", class: "input-group rounded" do %>
+
+    <%= text_field_area :search, "Search", class: "form-area" %>
+    <span class="input-btn">
+        <%= submit_tag "Search", class: "btn push-btn" %>
+    </span>
+<% end %>

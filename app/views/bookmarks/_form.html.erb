@@ -1,0 +1,20 @@
+<% content_for :show do %>
+    <%= form_with model: shelf do |f| %>
+
+        <% bookmark.errors.full_messages.each do |msg| %>
+            <p><%= msg %></p>
+        <% end %>
+
+        <div>
+            <%= f.hidden_field :user_id %>
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+        </div>
+
+        <div>
+        <%= f.submit %>
+        </div>
+
+    <% end %>
+
+<% end %>

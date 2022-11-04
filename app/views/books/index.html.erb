@@ -1,0 +1,11 @@
+<% content_for :show do %>
+
+    <% if !@books.nil? %>
+
+        <% @books.each do |book| %>
+            <% if book.isbn %>
+                <%= render partial: "book", locals: { book: book} %>
+            <% end %>
+        <% end %>
+    <% end %>
+<% end %>

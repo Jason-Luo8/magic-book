@@ -5,11 +5,26 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.min.css">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <nav>
+        <%= link_to 'Home', root_path %>
+        <% if @current_user.present? %>
+          <% if @current_user.admin? %>
+            <%= link_to 'All users', users_path %>
+          <% end %>
+          <%= link_to 'Bookmarks', bookmarks_path %>
+          <%= link_to "Sign out #{ @current_user.email }", login_path, :method => 'delete' %>
+        <% else %>
+          <%= link_to 'Sign up', new_user_path %>
+          <%= link_to 'Sign in', login_path %>
+        <% end %>
+      </nav>
+    <%= yield :bookmark %>
   </body>
 </html>

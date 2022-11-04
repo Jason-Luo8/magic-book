@@ -1,4 +1,5 @@
 class BookmarksController < ApplicationController
+    before_action :check_for_login
 
     def index
     end
@@ -10,7 +11,7 @@ class BookmarksController < ApplicationController
     def new
         user = User.find_by(id: params[:user_id])
         if user == current_user
-            @bookmarks = Bookmark.new(user_id: params[:user_id])
+            @bookmark = Bookmark.new(user_id: params[:user_id])
         else
             redirect_to user_path(current_user)
         end

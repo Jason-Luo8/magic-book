@@ -1,2 +1,14 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<% content_for :show do %>
+    <h2>Find A New Book</h2>
+
+    <%= render 'shared/search' %>
+
+<% end %>
+
+<div class="container para5">
+    <h3>Most Popular Books</h3>
+
+    <div class="row number5">
+        <%= render @books %>
+    </div>
+</div>

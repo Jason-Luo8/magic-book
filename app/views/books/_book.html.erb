@@ -1,0 +1,14 @@
+<div class="column dark background">
+    <div class="column number-2">
+        <h4><%= link_to book.title, book_path(book.isbn) %></h4>
+    </div>
+
+    <% if book.image_link %>
+        <%= link_to href: book_path(book.isbn) do %>
+            <%= link_to image_source(book.image_link) , book_path(book.isbn) %>
+        <% end %>
+    <% end %>
+    <br>
+    <%= show.star(book.average_rating) %>
+
+</div>
